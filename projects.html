@@ -14,14 +14,16 @@
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: #8B4513;
-            background-color: #FFF8DC;
+            color: #4A4A4A;
+            background: linear-gradient(135deg, #FFE4E6, #FFF0F5, #FFFFFF);
+            min-height: 100vh;
         }
 
         .navbar {
-            background-color: #F5DEB3;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+            box-shadow: 0 2px 20px rgba(255, 182, 193, 0.3);
             position: fixed;
             width: 100%;
             top: 0;
@@ -38,7 +40,7 @@
         }
 
         .nav-brand h2 {
-            color: #D2691E;
+            color: #FF69B4;
             font-size: 1.8rem;
             font-weight: bold;
         }
@@ -50,7 +52,7 @@
         }
 
         .nav-link {
-            color: #CD853F;
+            color: #FF1493;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -58,7 +60,7 @@
 
         .nav-link:hover,
         .nav-link.active {
-            color: #FF6347;
+            color: #FF69B4;
         }
 
         .hamburger {
@@ -89,14 +91,14 @@
 
         .page-hero h1 {
             font-size: 3rem;
-            color: #FF6347;
+            color: #FF1493;
             margin-bottom: 20px;
             font-weight: bold;
         }
 
         .page-hero p {
             font-size: 1.2rem;
-            color: #A0522D;
+            color: #666;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -111,8 +113,8 @@
 
         .filter-btn {
             padding: 10px 20px;
-            background-color: #F5DEB3;
-            color: #8B4513;
+            background: rgba(255, 182, 193, 0.3);
+            color: #FF1493;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -122,7 +124,7 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background-color: #FF6347;
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
             color: white;
         }
 
@@ -134,22 +136,24 @@
         }
 
         .project-card {
-            background: #FFFACD;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
             transition: all 0.3s;
             cursor: pointer;
         }
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
         }
 
         .project-image {
             height: 200px;
-            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -157,7 +161,7 @@
 
         .placeholder-image {
             font-size: 1.2rem;
-            color: #D2691E;
+            color: white;
             font-weight: bold;
         }
 
@@ -167,12 +171,12 @@
 
         .project-info h3 {
             font-size: 1.5rem;
-            color: #8B4513;
+            color: #FF1493;
             margin-bottom: 15px;
         }
 
         .project-info p {
-            color: #A0522D;
+            color: #666;
             margin-bottom: 20px;
             line-height: 1.6;
         }
@@ -185,8 +189,8 @@
         }
 
         .tag {
-            background-color: #F5DEB3;
-            color: #8B4513;
+            background: rgba(255, 182, 193, 0.3);
+            color: #FF1493;
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -194,20 +198,22 @@
         }
 
         .project-link {
-            color: #FF6347;
+            color: #FF1493;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
 
         .project-link:hover {
-            color: #FF4500;
+            color: #FF69B4;
         }
 
         .footer {
-            background-color: #F5DEB3;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             padding: 60px 0 30px;
             margin-top: 80px;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
         }
 
         .footer-content {
@@ -218,13 +224,13 @@
         }
 
         .footer-left h3 {
-            color: #D2691E;
+            color: #FF1493;
             font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
         .footer-left p {
-            color: #A0522D;
+            color: #666;
         }
 
         .social-links {
@@ -233,21 +239,21 @@
         }
 
         .social-link {
-            color: #CD853F;
+            color: #FF69B4;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .social-link:hover {
-            color: #FF6347;
+            color: #FF1493;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #DEB887;
-            color: #A0522D;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
+            color: #666;
         }
 
         @media (max-width: 768px) {
@@ -299,7 +305,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="projects.html" class="nav-link active">Projects</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>

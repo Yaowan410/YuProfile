@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Yu Liu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #4A4A4A;
+            background: linear-gradient(135deg, #FFE4E6, #FFF0F5, #FFFFFF);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(255, 182, 193, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand h2 {
+            color: #FF69B4;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #FF1493;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FF69B4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .resume-header h1 {
+            font-size: 3rem;
+            color: #FF1493;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .resume-header p {
+            font-size: 1.2rem;
+            color: #FF69B4;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.5);
+        }
+
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .resume-sidebar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            height: fit-content;
+        }
+
+        .resume-main {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            color: #FF1493;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .profile-title {
+            font-size: 1.1rem;
+            color: #FF69B4;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 240, 245, 0.7);
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .contact-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #FF1493;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-bottom: 2px solid #FFB6C1;
+            padding-bottom: 10px;
+        }
+
+        .skills-section {
+            margin-bottom: 40px;
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+        }
+
+        .skill-category h4 {
+            color: #FF69B4;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .languages-section {
+            margin-bottom: 40px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .language-name {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .language-level {
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .experience-section,
+        .education-section,
+        .projects-section {
+            margin-bottom: 40px;
+        }
+
+        .experience-item,
+        .education-item,
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .experience-item:last-child,
+        .education-item:last-child,
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .item-title {
+            color: #FF1493;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-company,
+        .item-school {
+            color: #FF69B4;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .item-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .item-achievements {
+            list-style: none;
+        }
+
+        .item-achievements li {
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .item-achievements li::before {
+            content: '•';
+            color: #FF69B4;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 182, 193, 0.3);
+            color: #FF1493;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-left h3 {
+            color: #FF1493;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-left p {
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #FF69B4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #FF1493;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .resume-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .resume-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Yu</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Resume Header -->
+        <section class="resume-header">
+            <h1>Resume & CV</h1>
+            <p>Professional Experience & Qualifications</p>
+            <a href="#" class="download-btn">Download PDF</a>
+        </section>
+
+        <!-- Resume Content -->
+        <div class="resume-content">
+            <!-- Sidebar -->
+            <div class="resume-sidebar">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-photo">
+                        YL
+                    </div>
+                    <h2 class="profile-name">Yu Liu</h2>
+                    <p class="profile-title">Creative Designer & Developer</p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-section">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">yu.liu@example.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">+1 (555) 123-4567</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">San Francisco, CA</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🌐</div>
+                            <div class="contact-text">linkedin.com/in/yuliu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="skills-section">
+                    <h3 class="section-title">Skills</h3>
+                    
+                    <div class="skill-category">
+                        <h4>Frontend</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Design</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">UI/UX</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Photoshop</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Webpack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages Section -->
+                <div class="languages-section">
+                    <h3 class="section-title">Languages</h3>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Chinese</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Japanese</span>
+                        <span class="language-level">Intermediate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="resume-main">
+                <!-- Professional Summary -->
+                <section class="summary-section">
+                    <h3 class="section-title">Professional Summary</h3>
+                    <p class="item-description">
+                        Passionate full-stack developer and creative designer with 5+ years of experience in building modern web applications. 
+                        Specialized in React, Node.js, and UI/UX design. Proven track record of delivering high-quality projects that combine 
+                        technical excellence with exceptional user experience. Strong problem-solving skills and ability to work effectively 
+                        in collaborative environments.
+                    </p>
+                </section>
+
+                <!-- Work Experience -->
+                <section class="experience-section">
+                    <h3 class="section-title">Work Experience</h3>
+                    
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">Senior Frontend Developer</h4>
+                                <p class="item-company">TechCorp Solutions</p>
+                            </div>
+                            <span class="item-date">2022 - Present</span>
+                        </div>
+                        <p class="item-description">
+                            Lead frontend development for enterprise web applications serving 100K+ users. 
+                            Collaborate with cross-functional teams to deliver scalable and maintainable solutions.
+                        </p>
+                        <ul class="item-achievements">
+                            <li>Improved application performance by 40% through code optimization and lazy loading</li>
+                            <li>Led migration from legacy jQuery to React, reducing development time by 30%</li>
+                            <li>Mentored 3 junior developers and established coding standards for the team</li>
+                            <li>Implemented responsive design system used across 5+ products</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">Full Stack Developer</h4>
+                                <p class="item-company">StartupXYZ</p>
+                            </div>
+                            <span class="item-date">2020 - 2022</span>
+                        </div>
+                        <p class="item-description">
+                            Developed and maintained full-stack web applications using React, Node.js, and MongoDB. 
+                            Worked closely with product team to implement new features and improve user experience.
+                        </p>
+                        <ul class="item-achievements">
+                            <li>Built RESTful APIs serving 50K+ daily requests with 99.9% uptime</li>
+                            <li>Designed and implemented user authentication system with JWT</li>
+                            <li>Created automated testing suite achieving 85% code coverage</li>
+                            <li>Collaborated with designers to implement pixel-perfect UI components</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">Junior Web Developer</h4>
+                                <p class="item-company">Digital Agency Pro</p>
+                            </div>
+                            <span class="item-date">2019 - 2020</span>
+                        </div>
+                        <p class="item-description">
+                            Developed responsive websites and web applications for various clients. 
+                            Gained experience in multiple technologies and project management.
+                        </p>
+                        <ul class="item-achievements">
+                            <li>Delivered 15+ client projects on time and within budget</li>
+                            <li>Implemented SEO best practices resulting in 60% increase in organic traffic</li>
+                            <li>Created custom WordPress themes and plugins</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="education-section">
+                    <h3 class="section-title">Education</h3>
+                    
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">Bachelor of Science in Computer Science</h4>
+                                <p class="item-school">University of California, Berkeley</p>
+                            </div>
+                            <span class="item-date">2015 - 2019</span>
+                        </div>
+                        <p class="item-description">
+                            Graduated Magna Cum Laude with focus on software engineering and human-computer interaction. 
+                            Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems, UI Design.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Key Projects -->
+                <section class="projects-section">
+                    <h3 class="section-title">Key Projects</h3>
+                    
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">SmartDress AI</h4>
+                            </div>
+                            <span class="item-date">2023</span>
+                        </div>
+                        <p class="item-description">
+                            An intelligent wardrobe assistant that eliminates the daily "what-to-wear" dilemma using 
+                            real-time weather data and AI recommendations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Weather API</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="item-header">
+                            <div>
+                                <h4 class="item-title">E-Commerce Platform</h4>
+                            </div>
+                            <span class="item-date">2022</span>
+                        </div>
+                        <p class="item-description">
+                            A full-stack e-commerce solution with real-time inventory management, 
+                            secure payment processing, and admin dashboard.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe API</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Yu</h3>
+                    <p>Let's create something amazing together.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
