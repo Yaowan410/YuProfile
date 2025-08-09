@@ -1,402 +1,513 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yu • Portfolio</title>
-  <meta name="description" content="Personal portfolio of Yu — resume and projects." />
-  <style>
-    /* ===== Theme ===== */
-    :root{
-      --pink-50:#fff1f7;
-      --pink-100:#ffe1ec;
-      --pink-200:#ffc9dd;
-      --pink-300:#ff9fc3;
-      --pink-400:#ff76ab;
-      --pink-500:#ff4e95;
-      --pink-600:#e63e84;
-      --ink-900:#1f2937;
-      --ink-700:#374151;
-      --ink-600:#4b5563;
-      --ink-500:#6b7280;
-      --radius:18px;
-      --shadow:0 10px 24px rgba(255, 78, 149,.15);
-      --ring:0 0 0 3px rgba(255,78,149,.2);
-      --container:1120px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--ink-700);
-      background:
-        radial-gradient(1200px 600px at 80% -10%, var(--pink-100), transparent 60%),
-        radial-gradient(1000px 600px at -10% 20%, var(--pink-50), transparent 50%),
-        #fff;
-    }
-    a{color:var(--pink-600);text-decoration:none}
-    a:hover{text-decoration:underline}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu Liu - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ===== Layout ===== */
-    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    section{padding:80px 0}
-    h1,h2,h3{margin:0;color:#0f172a}
-    p{line-height:1.7;margin:0}
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #8B4513;
+            background-color: #FFF8DC;
+        }
 
-    /* ===== Header / Nav ===== */
-    .nav{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:rgba(255,255,255,.75);
-      border-bottom:1px solid var(--pink-100);
-    }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{font-weight:600;color:var(--pink-600)}
-    .menu{display:flex;gap:22px}
-    .menu a{color:var(--ink-600)}
-    .menu a:hover{color:var(--pink-600)}
-    .cta{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 14px;border-radius:999px;
-      background:linear-gradient(180deg,var(--pink-500),var(--pink-600));
-      color:#fff;box-shadow:var(--shadow);
-    }
-    .hamburger{display:none;appearance:none;border:1px solid var(--pink-200);background:#fff;padding:10px;border-radius:12px}
-    .mobile{display:none;flex-direction:column;margin-top:8px;border:1px solid var(--pink-200);background:#fff;border-radius:14px;overflow:hidden}
-    .mobile a{padding:12px 14px;color:var(--ink-600)}
-    .mobile a:hover{background:var(--pink-50);color:var(--pink-600)}
+        /* Navigation */
+        .navbar {
+            background-color: #F5DEB3;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* ===== Hero ===== */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:96px 0}
-    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--pink-200);background:#fff;padding:8px 12px;border-radius:999px;color:var(--pink-600)}
-    .kicker{width:8px;height:8px;border-radius:999px;background:var(--pink-500);display:inline-block;animation:pulse 1.2s infinite}
-    @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
-    .headline{font-size:44px;line-height:1.1;margin-top:10px}
-    .sub{margin-top:14px;color:var(--ink-600);max-width:56ch}
-    .actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
-    .btn{padding:12px 16px;border-radius:999px;font-weight:600}
-    .btn-primary{background:var(--pink-600);color:#fff;box-shadow:var(--shadow)}
-    .btn-ghost{border:1px solid var(--pink-200);color:var(--pink-600);background:#fff}
-    .frame{
-      width:280px;height:280px;border-radius:28px;
-      background:linear-gradient(135deg,var(--pink-200),var(--pink-100));
-      box-shadow:var(--shadow);display:grid;place-items:center;justify-self:center;
-    }
-    .inner{
-      width:200px;height:200px;border-radius:20px;background:#fff;
-      display:grid;place-items:center;color:var(--pink-500);border:1px solid var(--pink-200);
-    }
-    .badge{
-      position:absolute;transform:translate(10px, -10px);
-      border:1px solid var(--pink-200);background:#fff;padding:8px 10px;border-radius:12px;color:var(--pink-600);font-size:12px
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-    /* ===== Section Title ===== */
-    .title-wrap{text-align:center;max-width:720px;margin:0 auto}
-    .chip{display:inline-block;background:var(--pink-100);color:var(--pink-600);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--pink-200)}
-    .h2{font-size:28px;margin-top:14px}
-    .muted{color:var(--ink-500);margin-top:8px}
+        .nav-brand h2 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-    /* ===== Cards & Grids ===== */
-    .grid-3{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);margin-top:24px}
-    .card{border:1px solid var(--pink-200);background:#fff;border-radius:var(--radius);padding:18px;box-shadow:0 6px 14px rgba(255,78,149,.07)}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pink-50);border:1px solid var(--pink-200);color:var(--pink-600);font-size:12px;margin:4px 6px 0 0}
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    /* ===== Timeline ===== */
-    .timeline{border:1px solid var(--pink-200);border-radius:var(--radius);background:#fff;padding:18px}
-    .tl{list-style:none;margin:12px 0 0;padding:0}
-    .tl li{position:relative;padding-left:22px;margin:14px 0}
-    .dot{position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:999px;background:var(--pink-400)}
-    .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .when{font-size:12px;color:var(--ink-500)}
+        .nav-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    /* ===== Projects ===== */
-    .project{display:block;border:1px solid var(--pink-200);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 6px 14px rgba(255,78,149,.07);transition:transform .12s ease, box-shadow .12s ease}
-    .project:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,78,149,.12)}
-    .shot{aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink-100),var(--pink-50));color:var(--pink-500)}
-    .project-body{padding:16px}
+        .nav-link:hover,
+        .nav-link.active {
+            color: #FF6347;
+        }
 
-    /* ===== Contact ===== */
-    .contact-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:24px}
-    .input, .textarea{
-      width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--pink-200);background:#fff;
-    }
-    .input:focus, .textarea:focus{outline:none;box-shadow:var(--ring);border-color:var(--pink-300)}
-    .textarea{min-height:120px;resize:vertical}
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-    /* ===== Footer ===== */
-    footer{border-top:1px solid var(--pink-100);background:rgba(255,255,255,.7)}
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;color:var(--ink-500);flex-wrap:wrap}
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #CD853F;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr;gap:12px}
-      .contact-grid{grid-template-columns:1fr}
-      .menu{display:none}
-      .hamburger{display:inline-block}
-      section{padding:64px 0}
-      .headline{font-size:36px}
-      .frame{width:240px;height:240px}
-      .inner{width:170px;height:170px}
-    }
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
 
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .project:hover{transform:none}
-      .kicker{animation:none}
-    }
-  </style>
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: #D2691E;
+            margin-bottom: 30px;
+        }
+
+        .hero .description {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #A0522D;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #FF6347;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #FF4500;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+        }
+
+        /* Featured Work */
+        .featured-work {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #D2691E;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .work-item {
+            background: #FFFACD;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .work-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
+        }
+
+        .work-image {
+            height: 200px;
+            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-image {
+            font-size: 1.2rem;
+            color: #D2691E;
+            font-weight: bold;
+        }
+
+        .work-info {
+            padding: 30px;
+        }
+
+        .work-info h3 {
+            font-size: 1.5rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+
+        .work-info p {
+            color: #A0522D;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .view-all {
+            text-align: center;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #FF6347;
+            border: 2px solid #FF6347;
+        }
+
+        .btn-outline:hover {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        /* Skills Preview */
+        .skills-preview {
+            margin-bottom: 80px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: #FFFACD;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: #A0522D;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F5DEB3;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-left h3 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-left p {
+            color: #A0522D;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #FF6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #DEB887;
+            color: #A0522D;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #F5DEB3;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(139, 69, 19, 0.15);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .work-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- ===== Nav ===== -->
-  <nav class="nav" role="navigation">
-    <div class="container nav-inner">
-      <a class="brand" href="#home">Yu • Portfolio</a>
-      <div class="menu" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="cta" href="#contact">Get in touch</a>
-      <button class="hamburger" id="hamburger" aria-controls="mobile" aria-expanded="false" aria-label="Toggle menu">☰</button>
-    </div>
-    <div class="container">
-      <div id="mobile" class="mobile" hidden>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===== Hero ===== -->
-  <header id="home" class="container hero" role="banner">
-    <div>
-      <span class="pill"><span class="kicker"></span> Available for opportunities</span>
-      <h1 class="headline">Hi, I’m <span style="color:var(--pink-600)">Yu</span> — 喜欢简洁设计与可靠代码的创作者。</h1>
-      <p class="sub">这里放一句话简介：你的方向、兴趣与你正在做的事。后面会替换成真实内容。</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#projects">查看项目</a>
-        <a class="btn btn-ghost" href="#resume">下载简历</a>
-      </div>
-    </div>
-    <div style="position:relative">
-      <div class="frame">
-        <div class="inner">Your Photo</div>
-      </div>
-      <div class="badge">Based in • Your City</div>
-    </div>
-  </header>
-
-  <!-- ===== About ===== -->
-  <section id="about">
-    <div class="container">
-      <div class="title-wrap">
-        <span class="chip">About</span>
-        <h2 class="h2">A little about me</h2>
-        <p class="muted">简短自我介绍、关注方向与现在在学什么。</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Focus Areas</h3>
-          <div>
-            <span class="tag">Mobile • Web</span>
-            <span class="tag">AI/ML</span>
-            <span class="tag">Product</span>
-            <span class="tag">Data</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Currently Learning</h3>
-          <div>
-            <span class="tag">SQL</span>
-            <span class="tag">Vue</span>
-            <span class="tag">Django</span>
-            <span class="tag">3D Gen + LLMs</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Fun</h3>
-          <div>
-            <span class="tag">Photography</span>
-            <span class="tag">Travel</span>
-            <span class="tag">Cats</span>
-            <span class="tag">Coffee</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Resume ===== -->
-  <section id="resume" aria-labelledby="resume-title">
-    <div class="container">
-      <div class="title-wrap">
-        <span class="chip">Resume</span>
-        <h2 id="resume-title" class="h2">Experience & Education</h2>
-        <p class="muted">替换为你的真实经历与教育信息。</p>
-      </div>
-
-      <div class="grid-3" style="grid-template-columns:1fr 1fr;">
-        <div class="timeline">
-          <h3>Experience</h3>
-          <ul class="tl">
-            <li>
-              <span class="dot"></span>
-              <div class="row">
-                <p><strong>Position Title</strong> • <span style="color:var(--pink-600)">Company / Lab</span></p>
-                <span class="when">2024 – Now</span>
-              </div>
-              <p class="muted">一句话描述你做了什么、影响是什么。</p>
-            </li>
-            <li>
-              <span class="dot"></span>
-              <div class="row">
-                <p><strong>Position Title</strong> • <span style="color:var(--pink-600)">Company / Project</span></p>
-                <span class="when">2023 – 2024</span>
-              </div>
-              <p class="muted">一句话描述你的成果。</p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="timeline">
-          <h3>Education</h3>
-          <ul class="tl">
-            <li>
-              <span class="dot"></span>
-              <div class="row">
-                <p><strong>B.S. in CS & Business</strong> • <span style="color:var(--pink-600)">University</span></p>
-                <span class="when">2023 – 2027</span>
-              </div>
-              <p class="muted">GPA / 亮点 / 社团。</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn-primary" href="#" download>下载 PDF 简历</a>
-        <a class="btn btn-ghost" href="#contact">联系我获取完整简历</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Projects ===== -->
-  <section id="projects" aria-labelledby="projects-title">
-    <div class="container">
-      <div class="title-wrap">
-        <span class="chip">Projects</span>
-        <h2 id="projects-title" class="h2">Selected Work</h2>
-        <p class="muted">一些我做过且自豪的事情（占位，后续替换为真实项目）。</p>
-      </div>
-
-      <div class="grid-3" style="margin-top:22px">
-        <a class="project" href="#" aria-label="Project One">
-          <div class="shot">Screenshot</div>
-          <div class="project-body">
-            <h3>Project One</h3>
-            <div style="margin-top:8px">
-              <span class="tag">HTML/CSS</span><span class="tag">JS</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Yu</h2>
             </div>
-          </div>
-        </a>
-
-        <a class="project" href="#" aria-label="Project Two">
-          <div class="shot">Screenshot</div>
-          <div class="project-body">
-            <h3>Project Two</h3>
-            <div style="margin-top:8px">
-              <span class="tag">Django</span><span class="tag">API</span>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-          </div>
-        </a>
-
-        <a class="project" href="#" aria-label="Project Three">
-          <div class="shot">Screenshot</div>
-          <div class="project-body">
-            <h3>Project Three</h3>
-            <div style="margin-top:8px">
-              <span class="tag">SQL</span><span class="tag">ETL</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section id="contact" aria-labelledby="contact-title">
-    <div class="container">
-      <div class="title-wrap">
-        <span class="chip">Contact</span>
-        <h2 id="contact-title" class="h2">Let’s build something together</h2>
-        <p class="muted">把邮箱或表单接收端替换为你的真实信息。</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card">
-          <h3>Email</h3>
-          <p style="margin-top:6px">you@example.com</p>
-          <h3 style="margin-top:14px">Social</h3>
-          <p style="margin-top:6px">
-            <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">Twitter</a>
-          </p>
         </div>
+    </nav>
 
-        <form class="card" id="contactForm">
-          <label>姓名</label>
-          <input class="input" name="name" placeholder="Your name" required />
-          <label style="margin-top:10px">邮箱</label>
-          <input class="input" type="email" name="email" placeholder="you@example.com" required />
-          <label style="margin-top:10px">留言</label>
-          <textarea class="textarea" name="message" placeholder="Say hi!" required></textarea>
-          <button class="btn btn-primary" type="submit" style="width:100%;margin-top:10px">发送</button>
-          <p id="formMsg" class="muted" role="status" style="margin-top:8px"></p>
-        </form>
-      </div>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Hello, I'm Yu!</h1>
+            <p class="subtitle">Creative Designer & Developer</p>
+            <div class="description">
+                <p>Welcome to my digital space! I'm a passionate developer and designer who loves creating beautiful, functional web experiences. I specialize in modern web technologies and enjoy solving complex problems through clean, efficient code.</p>
+            </div>
+            <a href="projects.html" class="btn">View My Work</a>
+        </section>
+
+        <!-- Featured Work -->
+        <section class="featured-work">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="work-grid">
+                <div class="work-item" onclick="window.location.href='project-detail.html?id=1'">
+                    <div class="work-image">
+                        <div class="placeholder-image">
+                            <span>SmartDress AI</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>SmartDress AI</h3>
+                        <p>An intelligent wardrobe assistant that eliminates the daily "what-to-wear" dilemma using real-time weather data and AI recommendations.</p>
+                        <div class="work-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="window.location.href='project-detail.html?id=2'">
+                    <div class="work-image">
+                        <div class="placeholder-image">
+                            <span>E-Commerce Platform</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-stack e-commerce solution built with React and Node.js, featuring real-time inventory management and secure payment processing.</p>
+                        <div class="work-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="window.location.href='project-detail.html?id=3'">
+                    <div class="work-image">
+                        <div class="placeholder-image">
+                            <span>Task Management</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                        <div class="work-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="projects.html" class="btn btn-outline">View All Projects</a>
+            </div>
+        </section>
+
+        <!-- Skills Preview -->
+        <section class="skills-preview">
+            <h2 class="section-title">What I Do</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and beautiful user experiences that delight users and drive engagement.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Frontend Development</h3>
+                    <p>Building responsive and interactive web applications using modern frameworks and technologies.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Backend Development</h3>
+                    <p>Developing robust server-side solutions and APIs that power seamless user experiences.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Mobile Development</h3>
+                    <p>Creating native and cross-platform mobile applications for iOS and Android platforms.</p>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <div class="container foot">
-      <p>© <span id="year"></span> Yu. All rights reserved.</p>
-      <p>Built with HTML • CSS • JS</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Yu</h3>
+                    <p>Let's create something amazing together.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    // 年份
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+        // Mobile navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
-    // 移动端菜单
-    const hamburger = document.getElementById('hamburger');
-    const mobile = document.getElementById('mobile');
-    hamburger.addEventListener('click', () => {
-      const open = mobile.hasAttribute('hidden') ? true : false;
-      if(open){ mobile.removeAttribute('hidden'); }
-      else { mobile.setAttribute('hidden',''); }
-      hamburger.setAttribute('aria-expanded', String(open));
-    });
-    // 点击导航后收起
-    mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.setAttribute('hidden','')));
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
 
-    // 简单表单拦截（此处只做演示，不真实发送）
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.textContent = '已收到（示例）。请在 script 中接入真实后端或表单服务。';
-      setTimeout(()=>msg.textContent='', 3000);
-    });
-  </script>
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yu Liu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #8B4513;
+            background-color: #FFF8DC;
+        }
+
+        .navbar {
+            background-color: #F5DEB3;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand h2 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #FF6347;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #CD853F;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
+
+        .page-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #A0522D;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #F5DEB3;
+            color: #8B4513;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: #FFFACD;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-image {
+            font-size: 1.2rem;
+            color: #D2691E;
+            font-weight: bold;
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+
+        .project-info p {
+            color: #A0522D;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #FF4500;
+        }
+
+        .footer {
+            background-color: #F5DEB3;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-left h3 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-left p {
+            color: #A0522D;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #FF6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #DEB887;
+            color: #A0522D;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #F5DEB3;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(139, 69, 19, 0.15);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Yu</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <h1>My Projects</h1>
+            <p>A collection of my work showcasing various technologies and creative solutions.</p>
+        </section>
+
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            <button class="filter-btn" data-filter="ai">AI/ML</button>
+            <button class="filter-btn" data-filter="design">UI/UX Design</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <div class="project-card" data-category="ai" onclick="window.location.href='project-detail.html?id=1'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>SmartDress AI</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>SmartDress AI</h3>
+                    <p>An intelligent wardrobe assistant that eliminates the daily "what-to-wear" dilemma using real-time weather data and AI recommendations.</p>
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                    </div>
+                    <a href="project-detail.html?id=1" class="project-link">View Details →</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" onclick="window.location.href='project-detail.html?id=2'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>E-Commerce Platform</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-stack e-commerce solution built with React and Node.js, featuring real-time inventory management and secure payment processing.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Stripe</span>
+                    </div>
+                    <a href="project-detail.html?id=2" class="project-link">View Details →</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" onclick="window.location.href='project-detail.html?id=3'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>Task Management</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Task Management App</h3>
+                    <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Real-time</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <a href="project-detail.html?id=3" class="project-link">View Details →</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="mobile" onclick="window.location.href='project-detail.html?id=4'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>Fitness Tracker</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Fitness Tracker App</h3>
+                    <p>A mobile fitness tracking application with workout planning, progress monitoring, and social features for motivation.</p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Health Kit</span>
+                        <span class="tag">Charts</span>
+                    </div>
+                    <a href="project-detail.html?id=4" class="project-link">View Details →</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="design" onclick="window.location.href='project-detail.html?id=5'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>Brand Identity</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Brand Identity Design</h3>
+                    <p>Complete brand identity design for a tech startup, including logo design, color palette, typography, and brand guidelines.</p>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Logo Design</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Illustrator</span>
+                    </div>
+                    <a href="project-detail.html?id=5" class="project-link">View Details →</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web" onclick="window.location.href='project-detail.html?id=6'">
+                <div class="project-image">
+                    <div class="placeholder-image">
+                        <span>Portfolio Website</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive portfolio website showcasing creative work with smooth animations and modern design principles.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">GSAP</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                    <a href="project-detail.html?id=6" class="project-link">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Yu</h3>
+                    <p>Let's create something amazing together.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

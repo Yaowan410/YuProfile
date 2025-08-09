@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Yu Liu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #8B4513;
+            background-color: #FFF8DC;
+        }
+
+        .navbar {
+            background-color: #F5DEB3;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand h2 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #FF6347;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #D2691E;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        .about-content {
+            background: #FFFACD;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            margin-bottom: 60px;
+        }
+
+        .about-content h3 {
+            color: #8B4513;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #A0522D;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .skills-section {
+            margin-bottom: 60px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #FFFACD;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        .skill-category h4 {
+            color: #8B4513;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer {
+            background-color: #F5DEB3;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-left h3 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-left p {
+            color: #A0522D;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #FF6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #DEB887;
+            color: #A0522D;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Yu Liu</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- About Hero -->
+            <section class="about-hero">
+                <div class="about-card">
+                    <div class="about-content">
+                        <h1 class="page-title">About Me</h1>
+                        <p class="about-intro">
+                            Hello! I'm Yu Liu, a passionate developer and designer who loves creating 
+                            beautiful and functional digital experiences. With a background in both 
+                            technical development and creative design, I bring a unique perspective 
+                            to every project.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills & Experience -->
+            <section class="skills-section">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe Creative Suite</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Timeline -->
+            <section class="experience-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Senior Full Stack Developer</h3>
+                            <p class="company">Tech Innovation Co.</p>
+                            <p class="description">
+                                Leading development of modern web applications using React and Node.js. 
+                                Collaborated with design teams to create intuitive user experiences 
+                                and implemented scalable backend solutions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <div class="timeline-content">
+                            <h3>Frontend Developer</h3>
+                            <p class="company">Digital Solutions Ltd.</p>
+                            <p class="description">
+                                Developed responsive web applications and improved user interface 
+                                designs. Worked closely with UX designers to implement pixel-perfect 
+                                designs and optimize performance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - 2021</div>
+                        <div class="timeline-content">
+                            <h3>Junior Web Developer</h3>
+                            <p class="company">StartUp Ventures</p>
+                            <p class="description">
+                                Built and maintained company websites using modern web technologies. 
+                                Gained experience in full-stack development and agile methodologies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal Interests -->
+            <section class="interests-section">
+                <h2 class="section-title">When I'm Not Coding</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">📚</div>
+                        <h3>Reading</h3>
+                        <p>I love reading about technology trends, design principles, and personal development.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🎨</div>
+                        <h3>Digital Art</h3>
+                        <p>Creating digital illustrations and exploring new design techniques in my spare time.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🌱</div>
+                        <h3>Learning</h3>
+                        <p>Always exploring new technologies and frameworks to stay current in the field.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">☕</div>
+                        <h3>Coffee</h3>
+                        <p>A coffee enthusiast who believes the best code is written with a perfect cup of coffee.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="mailto:yu@example.com">Email</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

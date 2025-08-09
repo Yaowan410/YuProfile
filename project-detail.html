@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Yu Liu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #8B4513;
+            background-color: #FFF8DC;
+        }
+
+        .navbar {
+            background-color: #F5DEB3;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-brand h2 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FF6347;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
+
+        .project-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            color: #FF6347;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            color: #A0522D;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background-color: #F5DEB3;
+            color: #8B4513;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #FF6347;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #FF4500;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #FF6347;
+            border: 2px solid #FF6347;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        .placeholder-image {
+            font-size: 2rem;
+            color: #D2691E;
+            font-weight: bold;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .main-content {
+            background: #FFFACD;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: #FFFACD;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #D2691E;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h3 {
+            font-size: 1.4rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            color: #A0522D;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .content-section ul {
+            color: #A0522D;
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #F5DEB3;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .info-value {
+            color: #A0522D;
+        }
+
+        .gallery {
+            margin-bottom: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background: linear-gradient(135deg, #FFE4B5, #F0E68C);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+        }
+
+        .next-project {
+            background: #FFFACD;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            margin-bottom: 60px;
+        }
+
+        .next-project h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+
+        .next-project p {
+            color: #A0522D;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #F5DEB3;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-left h3 {
+            color: #D2691E;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-left p {
+            color: #A0522D;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #CD853F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: #FF6347;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #DEB887;
+            color: #A0522D;
+        }
+
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .project-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Yu</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Project Hero -->
+        <section class="project-hero">
+            <h1 id="project-title">Project Title</h1>
+            <p id="project-description">Project description will be loaded here...</p>
+            <div class="project-tags" id="project-tags">
+                <!-- Tags will be loaded here -->
+            </div>
+            <div class="project-links">
+                <a href="#" class="btn" id="live-demo">Live Demo</a>
+                <a href="#" class="btn btn-outline" id="source-code">Source Code</a>
+            </div>
+        </section>
+
+        <!-- Project Image -->
+        <div class="project-image">
+            <div class="placeholder-image" id="project-image-placeholder">
+                <span>Project Preview</span>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="project-content">
+            <div class="main-content">
+                <div class="content-section">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p id="project-overview">Detailed project overview will be loaded here...</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>Key Features</h3>
+                    <ul id="key-features">
+                        <!-- Features will be loaded here -->
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>Challenges & Solutions</h3>
+                    <p id="challenges-solutions">Challenges and solutions will be loaded here...</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>What I Learned</h3>
+                    <p id="lessons-learned">Lessons learned will be loaded here...</p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-card">
+                    <h3 class="section-title">Project Info</h3>
+                    <div class="info-item">
+                        <span class="info-label">Duration:</span>
+                        <span class="info-value" id="project-duration">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Role:</span>
+                        <span class="info-value" id="project-role">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Team Size:</span>
+                        <span class="info-value" id="team-size">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Platform:</span>
+                        <span class="info-value" id="platform">-</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="section-title">Technologies</h3>
+                    <div id="technologies-list">
+                        <!-- Technologies will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Gallery -->
+        <section class="gallery">
+            <h2 class="section-title">Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="placeholder-image">Screenshot 1</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image">Screenshot 2</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image">Screenshot 3</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-image">Screenshot 4</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Project -->
+        <section class="next-project">
+            <h3>Next Project</h3>
+            <p>Check out my other work</p>
+            <a href="projects.html" class="btn">View All Projects</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Yu</h3>
+                    <p>Let's create something amazing together.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Project data
+        const projects = {
+            1: {
+                title: "SmartDress AI",
+                description: "An intelligent wardrobe assistant that eliminates the daily 'what-to-wear' dilemma using real-time weather data and AI recommendations.",
+                overview: "SmartDress AI is a comprehensive wardrobe management system that combines artificial intelligence with real-time data to provide personalized outfit recommendations. The system analyzes weather patterns, user preferences, calendar events, and wardrobe inventory to suggest optimal clothing combinations. Built with a focus on user experience and practical utility, the application helps users save time while ensuring they're appropriately dressed for any occasion.",
+                features: [
+                    "Real-time weather integration for climate-appropriate suggestions",
+                    "AI-powered recommendation engine based on user preferences",
+                    "Calendar integration for occasion-appropriate outfits",
+                    "Wardrobe inventory management with photo cataloging",
+                    "Outfit history tracking and analytics",
+                    "Social sharing features for outfit inspiration"
+                ],
+                challenges: "The main challenge was developing an accurate recommendation algorithm that could balance multiple factors including weather, occasion, personal style, and wardrobe availability. We solved this by implementing a machine learning model trained on fashion data and user feedback, combined with rule-based systems for weather and occasion matching.",
+                lessons: "This project taught me the importance of user-centered design in AI applications. I learned how to effectively combine multiple data sources and create intuitive interfaces for complex AI-driven features. The experience also enhanced my skills in machine learning model deployment and real-time data processing.",
+                duration: "4 months",
+                role: "Full-Stack Developer & AI Engineer",
+                teamSize: "3 developers",
+                platform: "Web & Mobile",
+                technologies: ["React", "Python", "TensorFlow", "Node.js", "MongoDB", "Weather API"],
+                tags: ["AI", "React", "Python", "Machine Learning"],
+                liveDemo: "https://yliu307.github.io/",
+                sourceCode: "#"
+            },
+            2: {
+                title: "E-Commerce Platform",
+                description: "A full-stack e-commerce solution built with React and Node.js, featuring real-time inventory management and secure payment processing.",
+                overview: "A comprehensive e-commerce platform designed for modern online retail. The system includes a customer-facing storefront, admin dashboard, inventory management, and integrated payment processing. Built with scalability and security in mind, the platform can handle high traffic loads and provides a seamless shopping experience across all devices.",
+                features: [
+                    "Responsive product catalog with advanced filtering",
+                    "Real-time inventory tracking and management",
+                    "Secure payment processing with Stripe integration",
+                    "User authentication and profile management",
+                    "Order tracking and history",
+                    "Admin dashboard with analytics and reporting"
+                ],
+                challenges: "Implementing real-time inventory updates across multiple user sessions while maintaining data consistency was challenging. We solved this using WebSocket connections and optimistic UI updates with rollback mechanisms for failed operations.",
+                lessons: "This project deepened my understanding of full-stack development, particularly in handling complex state management and real-time data synchronization. I also gained valuable experience in payment system integration and security best practices.",
+                duration: "6 months",
+                role: "Lead Full-Stack Developer",
+                teamSize: "4 developers",
+                platform: "Web",
+                technologies: ["React", "Node.js", "MongoDB", "Stripe", "Socket.io", "Redis"],
+                tags: ["React", "Node.js", "MongoDB", "Stripe"],
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            3: {
+                title: "Task Management App",
+                description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+                overview: "A modern task management solution designed for teams and individuals. The application provides intuitive project organization, real-time collaboration features, and comprehensive progress tracking. With its clean interface and powerful functionality, it helps teams stay organized and productive.",
+                features: [
+                    "Drag-and-drop task organization",
+                    "Real-time collaboration and updates",
+                    "Project and team management",
+                    "Due date tracking and notifications",
+                    "File attachments and comments",
+                    "Progress analytics and reporting"
+                ],
+                challenges: "Creating smooth drag-and-drop interactions while maintaining real-time synchronization across multiple users required careful state management and conflict resolution strategies.",
+                lessons: "This project enhanced my skills in real-time application development and taught me about the complexities of collaborative software design. I learned to balance user experience with technical constraints in multi-user environments.",
+                duration: "3 months",
+                role: "Frontend Developer",
+                teamSize: "2 developers",
+                platform: "Web",
+                technologies: ["Vue.js", "Firebase", "Vuex", "CSS3", "JavaScript"],
+                tags: ["Vue.js", "Firebase", "Real-time", "UI/UX"],
+                liveDemo: "#",
+                sourceCode: "#"
+            }
+        };
+
+        // Get project ID from URL
+        function getProjectId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id') || '1';
+        }
+
+        // Load project data
+        function loadProject() {
+            const projectId = getProjectId();
+            const project = projects[projectId];
+
+            if (!project) {
+                // Redirect to projects page if project not found
+                window.location.href = 'projects.html';
+                return;
+            }
+
+            // Update page content
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-description').textContent = project.description;
+            document.getElementById('project-overview').textContent = project.overview;
+            document.getElementById('challenges-solutions').textContent = project.challenges;
+            document.getElementById('lessons-learned').textContent = project.lessons;
+            document.getElementById('project-duration').textContent = project.duration;
+            document.getElementById('project-role').textContent = project.role;
+            document.getElementById('team-size').textContent = project.teamSize;
+            document.getElementById('platform').textContent = project.platform;
+            document.getElementById('live-demo').href = project.liveDemo;
+            document.getElementById('source-code').href = project.sourceCode;
+            document.getElementById('project-image-placeholder').innerHTML = `<span>${project.title}</span>`;
+
+            // Update tags
+            const tagsContainer = document.getElementById('project-tags');
+            tagsContainer.innerHTML = '';
+            project.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+
+            // Update features
+            const featuresContainer = document.getElementById('key-features');
+            featuresContainer.innerHTML = '';
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresContainer.appendChild(li);
+            });
+
+            // Update technologies
+            const techContainer = document.getElementById('technologies-list');
+            techContainer.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const techElement = document.createElement('span');
+                techElement.className = 'tag';
+                techElement.style.display = 'inline-block';
+                techElement.style.margin = '5px';
+                techElement.textContent = tech;
+                techContainer.appendChild(techElement);
+            });
+
+            // Update page title
+            document.title = `${project.title} - Yu Liu`;
+        }
+
+        // Load project when page loads
+        document.addEventListener('DOMContentLoaded', loadProject);
+    </script>
+</body>
+</html>
