@@ -257,40 +257,44 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
             margin-top: 40px;
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.5);
+            text-align: center;
         }
 
         .skill-category h3 {
             color: #374151;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .skill-tags {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #F9A8D4, #F3E8FF);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background: #F8F9FA;
+            color: #374151;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 500;
+            border: 1px solid #E5E7EB;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: #374151;
+            color: white;
+            border-color: #374151;
         }
 
         .experience-section {
@@ -476,6 +480,11 @@
                 align-items: center;
             }
 
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -569,36 +578,27 @@
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Frontend Development</h3>
+                    <h3>Frontend</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">TypeScript</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Backend Development</h3>
+                    <h3>Backend</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Express</span>
                         <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">REST APIs</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Design & Tools</h3>
+                    <h3>Tools</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Adobe Creative Suite</span>
                         <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Figma</span>
                         <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">UI/UX Design</span>
                     </div>
                 </div>
             </div>
