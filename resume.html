@@ -369,6 +369,22 @@
             margin-bottom: 30px;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #374151;
+        }
+
         .footer-left h3 {
             color: #374151;
             font-size: 1.8rem;
@@ -467,35 +483,35 @@
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Resume Header -->
-        <section class="resume-header">
-            <h1>Resume & CV</h1>
-            <p>Download my complete resume to learn more about my experience and skills.</p>
-            <a href="resume.pdf" class="download-btn" download>Download PDF</a>
-        </section>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Resume Header -->
+            <section class="resume-header">
+                <h1>Resume & CV</h1>
+                <p>Download my complete resume to learn more about my experience and skills.</p>
+                <a href="resume.pdf" class="download-btn" download>Download PDF</a>
+            </section>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>Yu</h3>
-                    <p>Let's create something amazing together.</p>
+                    <p>&copy; 2025 Yu Liu. All rights reserved.</p>
+                    <p style="font-size: 0.9rem; color: #999; margin-top: 5px;">Click to send me an email or view my LinkedIn profile</p>
                 </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" class="social-link">GitHub</a>
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">Email</a>
-                    </div>
+                <div class="footer-links">
+                    <a href="mailto:yliu307@u.rochester.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/yu-liu-hi">LinkedIn</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+
+    <script src="script.js"></script>
 </body>
 </html>

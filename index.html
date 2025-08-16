@@ -461,6 +461,22 @@
             color: #666;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #374151;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 grid-template-columns: 1fr;
@@ -662,43 +678,25 @@
         </section>
     </div>
 
-    <!-- Footer -->
+      <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>Yu</h3>
-                    <p>Let's create something amazing together.</p>
+                    <p>&copy; 2025 Yu Liu. All rights reserved.</p>
+                    <p style="font-size: 0.9rem; color: #999; margin-top: 5px;">Click to send me an email or view my LinkedIn profile</p>
                 </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" class="social-link">GitHub</a>
-                        <a href="https://www.linkedin.com/in/yu-liu-rochester/" class="social-link">LinkedIn</a>
-                        <a href="mailto:yliu307@u.rochester.edu" class="social-link">Email</a>
-                    </div>
+                <div class="footer-links">
+                    <a href="mailto:yliu307@u.rochester.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/yu-liu-hi">LinkedIn</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
 
+    <script src="script.js"></script>
+    <script>
         // Add scroll effect to navbar
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');

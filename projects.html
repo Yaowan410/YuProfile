@@ -249,6 +249,22 @@
             color: #374151;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #374151;
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
@@ -392,88 +408,26 @@
                     <a href="project-detail.html?id=3" class="project-link">View Details →</a>
                 </div>
             </div>
-
-            <div class="project-card" data-category="mobile" onclick="window.location.href='project-detail.html?id=4'">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                        <span>Fitness Tracker</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Fitness Tracker App</h3>
-                    <p>A mobile fitness tracking application with workout planning, progress monitoring, and social features for motivation.</p>
-                    <div class="project-tags">
-                        <span class="tag">React Native</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">Health Kit</span>
-                        <span class="tag">Charts</span>
-                    </div>
-                    <a href="project-detail.html?id=4" class="project-link">View Details →</a>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="design" onclick="window.location.href='project-detail.html?id=5'">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                        <span>Brand Identity</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Brand Identity Design</h3>
-                    <p>Complete brand identity design for a tech startup, including logo design, color palette, typography, and brand guidelines.</p>
-                    <div class="project-tags">
-                        <span class="tag">Branding</span>
-                        <span class="tag">Logo Design</span>
-                        <span class="tag">Figma</span>
-                        <span class="tag">Illustrator</span>
-                    </div>
-                    <a href="project-detail.html?id=5" class="project-link">View Details →</a>
-                </div>
-            </div>
-
-            <div class="project-card" data-category="web" onclick="window.location.href='project-detail.html?id=6'">
-                <div class="project-image">
-                    <div class="placeholder-image">
-                        <span>Portfolio Website</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Portfolio Website</h3>
-                    <p>A responsive portfolio website showcasing creative work with smooth animations and modern design principles.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">GSAP</span>
-                        <span class="tag">Responsive</span>
-                    </div>
-                    <a href="project-detail.html?id=6" class="project-link">View Details →</a>
-                </div>
-            </div>
         </div>
-    </div>
-
-    <!-- Footer -->
+        
+      <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>Yu</h3>
-                    <p>Let's create something amazing together.</p>
+                    <p>&copy; 2025 Yu Liu. All rights reserved.</p>
+                    <p style="font-size: 0.9rem; color: #999; margin-top: 5px;">Click to send me an email or view my LinkedIn profile</p>
                 </div>
-                <div class="footer-right">
-                    <div class="social-links">
-                        <a href="#" class="social-link">GitHub</a>
-                        <a href="https://www.linkedin.com/in/yu-liu-rochester/" class="social-link">LinkedIn</a>
-                        <a href="mailto:yliu307@u.rochester.edu" class="social-link">Email</a>
-                    </div>
+                <div class="footer-links">
+                    <a href="mailto:yliu307@u.rochester.edu">Email</a>
+                    <a href="https://www.linkedin.com/in/yu-liu-hi">LinkedIn</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Yu Liu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+
+    <script src="script.js"></script>
     <script>
         // Mobile navigation toggle
         const hamburger = document.querySelector('.hamburger');
