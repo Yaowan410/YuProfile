@@ -66,11 +66,18 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 120px 20px 20px;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .resume-header {
             text-align: center;
             margin-bottom: 60px;
+            max-width: 600px;
+            width: 100%;
         }
 
         .resume-header h1 {
@@ -395,6 +402,32 @@
             color: #666;
         }
 
+        .interests-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .interest-item {
+            background: rgba(249, 250, 251, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .interest-item h4 {
+            color: #374151;
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .interest-item p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+
         @media (max-width: 768px) {
             .resume-content {
                 grid-template-columns: 1fr;
@@ -438,251 +471,9 @@
         <!-- Resume Header -->
         <section class="resume-header">
             <h1>Resume & CV</h1>
-            <p>Professional Experience & Qualifications</p>
-            <a href="#" class="download-btn">Download PDF</a>
+            <p>Download my complete resume to learn more about my experience and skills.</p>
+            <a href="resume.pdf" class="download-btn" download>Download PDF</a>
         </section>
-
-        <!-- Resume Content -->
-        <div class="resume-content">
-            <!-- Sidebar -->
-            <div class="resume-sidebar">
-                <!-- Profile Section -->
-                <div class="profile-section">
-                    <div class="profile-photo">
-                        YL
-                    </div>
-                    <h2 class="profile-name">Yu Liu</h2>
-                    <p class="profile-title">Creative Designer & Developer</p>
-                </div>
-
-                <!-- Contact Information -->
-                <div class="contact-section">
-                    <h3 class="section-title">Contact</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">yu.liu@example.com</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📱</div>
-                            <div class="contact-text">+1 (555) 123-4567</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">San Francisco, CA</div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🌐</div>
-                            <div class="contact-text">linkedin.com/in/yuliu</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills Section -->
-                <div class="skills-section">
-                    <h3 class="section-title">Skills</h3>
-                    
-                    <div class="skill-category">
-                        <h4>Frontend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vue.js</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Backend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Design</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">UI/UX</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Adobe XD</span>
-                            <span class="skill-tag">Photoshop</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Tools</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Webpack</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Languages Section -->
-                <div class="languages-section">
-                    <h3 class="section-title">Languages</h3>
-                    <div class="language-item">
-                        <span class="language-name">English</span>
-                        <span class="language-level">Native</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Chinese</span>
-                        <span class="language-level">Native</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Japanese</span>
-                        <span class="language-level">Intermediate</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="resume-main">
-                <!-- Professional Summary -->
-                <section class="summary-section">
-                    <h3 class="section-title">Professional Summary</h3>
-                    <p class="item-description">
-                        Passionate full-stack developer and creative designer with 5+ years of experience in building modern web applications. 
-                        Specialized in React, Node.js, and UI/UX design. Proven track record of delivering high-quality projects that combine 
-                        technical excellence with exceptional user experience. Strong problem-solving skills and ability to work effectively 
-                        in collaborative environments.
-                    </p>
-                </section>
-
-                <!-- Work Experience -->
-                <section class="experience-section">
-                    <h3 class="section-title">Work Experience</h3>
-                    
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">Senior Frontend Developer</h4>
-                                <p class="item-company">TechCorp Solutions</p>
-                            </div>
-                            <span class="item-date">2022 - Present</span>
-                        </div>
-                        <p class="item-description">
-                            Lead frontend development for enterprise web applications serving 100K+ users. 
-                            Collaborate with cross-functional teams to deliver scalable and maintainable solutions.
-                        </p>
-                        <ul class="item-achievements">
-                            <li>Improved application performance by 40% through code optimization and lazy loading</li>
-                            <li>Led migration from legacy jQuery to React, reducing development time by 30%</li>
-                            <li>Mentored 3 junior developers and established coding standards for the team</li>
-                            <li>Implemented responsive design system used across 5+ products</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">Full Stack Developer</h4>
-                                <p class="item-company">StartupXYZ</p>
-                            </div>
-                            <span class="item-date">2020 - 2022</span>
-                        </div>
-                        <p class="item-description">
-                            Developed and maintained full-stack web applications using React, Node.js, and MongoDB. 
-                            Worked closely with product team to implement new features and improve user experience.
-                        </p>
-                        <ul class="item-achievements">
-                            <li>Built RESTful APIs serving 50K+ daily requests with 99.9% uptime</li>
-                            <li>Designed and implemented user authentication system with JWT</li>
-                            <li>Created automated testing suite achieving 85% code coverage</li>
-                            <li>Collaborated with designers to implement pixel-perfect UI components</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">Junior Web Developer</h4>
-                                <p class="item-company">Digital Agency Pro</p>
-                            </div>
-                            <span class="item-date">2019 - 2020</span>
-                        </div>
-                        <p class="item-description">
-                            Developed responsive websites and web applications for various clients. 
-                            Gained experience in multiple technologies and project management.
-                        </p>
-                        <ul class="item-achievements">
-                            <li>Delivered 15+ client projects on time and within budget</li>
-                            <li>Implemented SEO best practices resulting in 60% increase in organic traffic</li>
-                            <li>Created custom WordPress themes and plugins</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="education-section">
-                    <h3 class="section-title">Education</h3>
-                    
-                    <div class="education-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">Bachelor of Science in Computer Science</h4>
-                                <p class="item-school">University of California, Berkeley</p>
-                            </div>
-                            <span class="item-date">2015 - 2019</span>
-                        </div>
-                        <p class="item-description">
-                            Graduated Magna Cum Laude with focus on software engineering and human-computer interaction. 
-                            Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems, UI Design.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Key Projects -->
-                <section class="projects-section">
-                    <h3 class="section-title">Key Projects</h3>
-                    
-                    <div class="project-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">SmartDress AI</h4>
-                            </div>
-                            <span class="item-date">2023</span>
-                        </div>
-                        <p class="item-description">
-                            An intelligent wardrobe assistant that eliminates the daily "what-to-wear" dilemma using 
-                            real-time weather data and AI recommendations.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Weather API</span>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <div class="item-header">
-                            <div>
-                                <h4 class="item-title">E-Commerce Platform</h4>
-                            </div>
-                            <span class="item-date">2022</span>
-                        </div>
-                        <p class="item-description">
-                            A full-stack e-commerce solution with real-time inventory management, 
-                            secure payment processing, and admin dashboard.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
