@@ -101,6 +101,14 @@
             color: white;
             font-weight: bold;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .profile-name {
@@ -535,27 +543,26 @@
             <!-- Profile Card -->
             <div class="profile-card">
                 <div class="profile-image">
-                    YL
+                    <img src="Assets/Profile.JPG" alt="Yu Liu">
                 </div>
                 <h1 class="profile-name">Yu Liu</h1>
                 <p class="profile-title">Computer Science & Business Student</p>
                 
                 <div class="profile-info">
                     <div class="info-item">
-                        <div class="info-icon">📧</div>
-                        <div class="info-text">yliu307@u.rochester.edu</div>
+                        <div class="info-text">Email: yliu307@u.rochester.edu</div>
                     </div>
+                    
                     <div class="info-item">
-                        <div class="info-icon">📱</div>
-                        <div class="info-text">(585) 414-1762</div>
+                        <div class="info-text">Phone: (585) 414-1762</div>
+                    </div>  
+                    
+                    <div class="info-item">
+                        <div class="info-text">Location: Rochester, New York</div>
                     </div>
+                    
                     <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div class="info-text">Rochester, New York</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">🎓</div>
-                        <div class="info-text">University of Rochester</div>
+                        <div class="info-text">Education: University of Rochester</div>
                     </div>
                 </div>
             </div>
@@ -634,49 +641,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Featured Projects -->
-        <section class="projects-preview">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Smart-Dress AI Application</h3>
-                    <p>Led a three-person team in developing an AI-powered outfit recommendation app integrating real-time weather data and calendar events. Built with Python, Flask, Kotlin, and TensorFlow Lite for personalized offline suggestions.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">AI</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Kotlin</span>
-                        <span class="project-tag">TensorFlow</span>
-                    </div>
-                    <a href="project-detail.html?id=1" class="btn">Learn More</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Campus Sustainability Web Platform</h3>
-                    <p>Collaborated with Brandeis Fashion Society to secure $2,000 funding and develop "green-fashion.org" - a platform for secondhand trade between university students using WordPress with custom optimizations.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">WordPress</span>
-                        <span class="project-tag">HTML5</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">WooCommerce</span>
-                    </div>
-                    <a href="project-detail.html?id=2" class="btn">Learn More</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Android Studio Cat Application</h3>
-                    <p>Created an advanced Kotlin-based Android app utilizing TheCat API, providing comprehensive breed exploration, intuitive search functionalities, and sophisticated UI animations with smooth navigation.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Kotlin</span>
-                        <span class="project-tag">Android</span>
-                        <span class="project-tag">API</span>
-                        <span class="project-tag">UI/UX</span>
-                    </div>
-                    <a href="project-detail.html?id=3" class="btn">Learn More</a>
-                </div>
-            </div>
-        </section>
-    </div>
 
       <!-- Footer -->
     <footer class="footer">
